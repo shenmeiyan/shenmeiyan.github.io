@@ -1,0 +1,55 @@
+<html>
+
+<head>
+<title>miss u</title>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<body>
+<p>body 元素的内容会显示在浏览器中。</p>
+<p>title 元素的内容会显示在浏览器的标题栏中。</p>
+
+<script>
+$(function() {
+    var a_idx = 0,
+        b_idx = 0;
+    c_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("m", "i", "s", "s", "m", "i", "s", "s", "m", "i", "s", "s"),
+                b = new Array("#09ebfc", "#ff6651", "#ffb351", "#51ff65", "#5197ff", "#a551ff", "#ff51f7", "#ff518e", "#ff5163", "#efff51"),
+                c = new Array("12", "14", "16", "18", "20", "22", "24", "26", "28", "30");
+            var $i = $("<span/>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            b_idx = (b_idx + 1) % b.length;
+            c_idx = (c_idx + 1) % c.length;
+            var x = e.pageX,
+                y = e.pageY;
+            $i.css({
+                "z-index": 999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "font-size": c[c_idx] + "px",
+                "color": b[b_idx]
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            }, 1500, function() {
+                $i.remove();
+            });
+        });
+    });
+    var _hmt = _hmt || [];
+})
+</script>
+
+<script type="text/javascript" color="100,0,255" opacity='0.5' zIndex="-2" count="99" src="canvas-nest.js"></script>
+
+
+</body>
+
+</html>
